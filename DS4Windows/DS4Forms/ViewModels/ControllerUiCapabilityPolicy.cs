@@ -239,7 +239,8 @@ namespace DS4WinWPF.DS4Forms.ViewModels
                 return true;
             }
 
-            if (IsDualShock4)
+            // The Xiaomi Gamepad has no extra buttons beyond the DS4 set.
+            if (IsDualShock4 || DeviceType == InputDeviceType.XiaomiGamepad)
             {
                 return control != DS4Controls.Mute &&
                     control != DS4Controls.Capture &&
@@ -457,6 +458,18 @@ namespace DS4WinWPF.DS4Forms.ViewModels
                     audioDescription: "Controller audio is not available on DualShock 3.",
                     microphoneToggleLabel: "Enable controller microphone input",
                     microphoneDescription: "Controller microphone input is not available on DualShock 3."),
+                InputDeviceType.XiaomiGamepad => new ControllerUiCapabilities(
+                    deviceType,
+                    "Xiaomi Gamepad",
+                    "DualShock 4 Controller.png",
+                    isPlayStationController: false,
+                    showControllerAudioSettings: false,
+                    showDualSenseHardwareControls: false,
+                    feedbackLabel: "Rumble strength",
+                    audioHeader: "Controller audio",
+                    audioDescription: "Controller audio is not available on this device.",
+                    microphoneToggleLabel: "Enable controller microphone input",
+                    microphoneDescription: "Controller microphone input is not available on this device."),
                 null => new ControllerUiCapabilities(
                     null,
                     "Generic profile",

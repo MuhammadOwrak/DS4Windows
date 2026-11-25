@@ -900,6 +900,11 @@ namespace DS4Windows
                 case InputDevices.InputDeviceType.DS3:
                     result = deviceOptions.DS3DeviceOpts.Enabled;
                     break;
+                case InputDevices.InputDeviceType.XiaomiGamepad:
+                    // No other driver claims this pad as XInput, so it needs
+                    // no opt-in setting.
+                    result = true;
+                    break;
                 default:
                     break;
             }

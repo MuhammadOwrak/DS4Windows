@@ -40,6 +40,7 @@ namespace DS4Windows.InputDevices
         Switch2JoyConLeft,
         Switch2JoyConRight,
         Switch2JoyConJoined,
+        XiaomiGamepad,
     }
 
     public abstract class InputDeviceFactory
@@ -67,6 +68,9 @@ namespace DS4Windows.InputDevices
                     break;
                 case InputDeviceType.DS3:
                     temp = new DS3Device(hidDevice, disName, featureSet);
+                    break;
+                case InputDeviceType.XiaomiGamepad:
+                    temp = new XiaomiGamepadDevice(hidDevice, disName, featureSet);
                     break;
                 case InputDeviceType.Switch2Pro:
                 case InputDeviceType.Switch2JoyConLeft:

@@ -273,7 +273,8 @@ internal static class DS4DeviceWorkerLifecycleSupportPolicy
                 UnsupportedSwitchOperationalSetup;
         }
         if (deviceType == typeof(DS4Device) ||
-            deviceType == typeof(DS3Device))
+            deviceType == typeof(DS3Device) ||
+            deviceType == typeof(XiaomiGamepadDevice))
         {
             return DS4DeviceWorkerLifecycleSupport.SupportedLegacyHid;
         }
